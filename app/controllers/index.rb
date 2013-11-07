@@ -7,8 +7,7 @@ end
 post '/todos' do
   @todo = Todo.create(params[:todo])
   if request.xhr?
-  # This is how to tell if a request came in over AJAX or not
-
+    erb :_available
   else
     redirect '/'
   end

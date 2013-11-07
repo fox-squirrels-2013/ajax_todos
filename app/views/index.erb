@@ -1,13 +1,14 @@
 <div class="container">
 <div id="add_todo">
 <h2> Add A Todo! </h2>
-<form method="POST" action="/todos">
+<form id="form_id" method="POST" action="/todos">
   <input id="new_todo_task" type="text" name="todo[task]" />
   <button>Add Todo</button>
 </form>
 </div>
 
 <div class="available-todos">
+  <p id="shittyidea"></p>
   <h2>Available Todo's</h2>
   <% available_todos.each do |todo| %>
     <div id="todo-<%=todo.id%>"><%=todo.task%>

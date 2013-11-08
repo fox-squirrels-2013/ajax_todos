@@ -8,3 +8,5 @@
 th {
   text-align: left;
 }
+
+ .available-todos form { display: inline; }

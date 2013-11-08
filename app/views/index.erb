@@ -1,23 +1,28 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<div id="add_todo">
+<h2> Add A Todo! </h2>
+<form id="whatever" method="POST" action="/todos">
+  <input id="new_todo_task" type="text" name="todo[task]" />
+  <button>Add Todo</button>
+</form>
+</div>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+<div class="available-todos">
+  <h2>Available Todo's</h2>
+  <% available_todos.each do |todo| %>
+    <div class="full-todo" id="todo-<%=todo.id%>"><%=todo.task%>
+      <form class="active-todo" method="POST" action="/todos/<%=todo.id%>/complete">
+        <button>Complete!</button>
+      </form>
+    </div>
+  <% end %>
+</div>
+
+<div class="completed-todos">
+  <h2> Completed Todo's </h2>
+  <% completed_todos.each do |todo| %>
+    <li id="todo-<%=todo.id%>"><%=todo.task%></li>
+  <% end %>
+</div>
+
 </div>

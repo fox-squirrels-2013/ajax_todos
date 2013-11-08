@@ -12,10 +12,7 @@
 </div>
 
 <div class="completed-todos">
-  <h2> Completed Todo's </h2>
-  <% completed_todos.each do |todo| %>
-    <li id="todo-<%=todo.id%>"><%=todo.task%></li>
-  <% end %>
+  <%= erb :_completed %>
 </div>
 
 </div>

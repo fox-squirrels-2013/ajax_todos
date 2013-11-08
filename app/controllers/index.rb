@@ -16,7 +16,7 @@ end
 post "/todos/:id/complete" do
   Todo.find(params[:id]).complete!
   if request.xhr?
-
+    erb :_completed
   else
     redirect '/'
   end

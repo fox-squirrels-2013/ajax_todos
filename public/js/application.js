@@ -16,20 +16,15 @@ $(document).ready(function() {
 
   $('.submit_completed').on('click', function(e) {
     e.preventDefault()
-    // var form_data = $(this.serialize)
-    // console.log(form_data)
-    console.log($('.available-todos').find('button').attr('id'))
+    var id = this.id
+    var button_selected = 'button#' + id
     $.ajax({
-      url: '/todos/???/complete',
+      url: '/todos/' + id + '/complete',
       type: 'post',
       data: {submit: true}
     }).done(function(server_data) {
-      console.log(server_data)
+      $(button_selected).closest('div').remove()
+      $('.completed-todos').html(server_data)
     })
   })
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 });

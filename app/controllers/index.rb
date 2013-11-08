@@ -7,8 +7,7 @@ end
 post '/todos' do
   @todo = Todo.create(params[:todo])
   if request.xhr?
-  # This is how to tell if a request came in over AJAX or not
-
+    erb :_available
   else
     redirect '/'
   end
@@ -17,7 +16,7 @@ end
 post "/todos/:id/complete" do
   Todo.find(params[:id]).complete!
   if request.xhr?
-
+    erb :_completed
   else
     redirect '/'
   end

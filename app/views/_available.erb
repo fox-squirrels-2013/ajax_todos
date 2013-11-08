@@ -1,0 +1,8 @@
+  <h2>Available Todo's</h2>
+  <% available_todos.each do |todo| %>
+    <div id="todo-<%=todo.id%>"><%=todo.task%>
+      <!-- <form method="POST" action="/todos/<%=todo.id%>/complete"> -->
+        <button id="<%=todo.id%>" class="submit_completed">Complete!</button>
+      <!-- </form> -->
+    </div>
+  <% end %>

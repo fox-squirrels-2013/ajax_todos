@@ -1,20 +1,23 @@
 <div class="container">
-<div id="add_todo">
+<div id="todo_div">
 <h2> Add A Todo! </h2>
-<form method="POST" action="/todos">
+<form id="add_todo" method="POST" action="/todos">
   <input id="new_todo_task" type="text" name="todo[task]" />
-  <button>Add Todo</button>
+  <input type="submit" value="Add Todo">
 </form>
 </div>
 
 <div class="available-todos">
   <h2>Available Todo's</h2>
   <% available_todos.each do |todo| %>
-    <div id="todo-<%=todo.id%>"><%=todo.task%>
-      <form method="POST" action="/todos/<%=todo.id%>/complete">
+  <div id="todo_template">
+    <div id="todo-<%=todo.id%>">
+      <h2><%=todo.task%></h2>
+      <form class="complete" method="POST" action="/todos/<%=todo.id%>/complete">
         <button>Complete!</button>
       </form>
     </div>
+  </div>
   <% end %>
 </div>
 
